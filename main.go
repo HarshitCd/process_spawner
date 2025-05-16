@@ -15,7 +15,7 @@ func processSpawner(n int) []*exec.Cmd {
 		cmd := exec.Command("sleep", "1000")
 		err := cmd.Start()
 		if err != nil {
-			fmt.Printf("failed to spawn %d process\n", i+1)
+			fmt.Printf("failed to spawn %d process, %v\n", i+1)
 		}
 		processes[i] = cmd
 	}
@@ -31,7 +31,7 @@ func processStopper(processes []*exec.Cmd) {
 
 		err := cmd.Process.Kill()
 		if err != nil {
-			fmt.Printf("failed to kill %d process\n", i+1)
+			fmt.Printf("failed to kill %d process, %v\n", i+1)
 		}
 	}
 }
